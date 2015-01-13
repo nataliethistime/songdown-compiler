@@ -8,7 +8,8 @@ fs = require 'fs'
 
 Song = require './song'
 
-module.exports.songs = (songDir) ->
+# TODO: this does **NOT** belong here!!!!!
+module.exports.loadSongs = (songDir) ->
     songs = {}
     files = glob.sync '*.songdown', cwd: songDir
 
