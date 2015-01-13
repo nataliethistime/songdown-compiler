@@ -1,0 +1,26 @@
+{
+  "name": "songdown-compiler",
+  "version": "0.1.0",
+  "description": "TODO: put something mildly interesting here.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://1Vasari@github.com/1Vasari/songdown-compiler"
+  },
+  "author": "Nathan McCallum",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/1Vasari/songdown-compiler/issues"
+  },
+  "homepage": "https://github.com/1Vasari/songdown-compiler",
+  "dependencies": {
+    "coffee-script": "1.8.0",
+    "glob": "4.3.4",
+    "lodash": "2.4.1",
+    "marked": "0.3.2",
+    "normalize-newline": "1.0.1"
+  }
+}
