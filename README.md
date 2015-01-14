@@ -1,9 +1,12 @@
 songdown-compiler
 =================
 
-TODO: put something mildly interesting here.
+This is the part of the Songdown project which is used to convert a `.songdown` file into HTML. This project isn't really a compiler, it kinda just hacks through the file until something like HTML emerges. :)
 
 # Changes
+
+### 0.2.1 (2015-1-14)
+- Fixed indentation of code for better consistency.
 
 ### 0.2.0 (2015-1-14)
 - Fixed up the code so that it's (slightly) usable.
