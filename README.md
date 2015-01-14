@@ -5,7 +5,7 @@ TODO: put something mildly interesting here.
 
 # Changes
 
-### 0.2.0
+### 0.2.0 (2015-1-14)
 - Fixed up the code so that it's (slightly) usable.
 
 ### 0.1.0 (2015-1-14)

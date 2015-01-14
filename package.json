@@ -1,6 +1,6 @@
 {
   "name": "songdown-compiler",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "TODO: put something mildly interesting here.",
   "main": "index.js",
   "scripts": {
