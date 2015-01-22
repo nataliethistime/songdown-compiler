@@ -5,6 +5,10 @@ This is the compiler component of the Songdown project. [![Dependency Status](ht
 
 # Changes
 
+### 0.2.2 (2015-1-22)
+- Compiled the code to JavaScript to integrate better with the `songdown-app` project and other possible uses.
+- Added a few unit tests to be able to start testing.
+
 ### 0.2.1 (2015-1-14)
 - Fixed indentation of code for better consistency.
 

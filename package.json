@@ -2,9 +2,9 @@
   "name": "songdown-compiler",
   "version": "0.2.1",
   "description": "The compiler component of the Songdown project.",
-  "main": "index.js",
+  "main": "lib",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node node_modules/mocha/bin/mocha"
   },
   "repository": {
     "type": "git",
@@ -17,9 +17,12 @@
   },
   "homepage": "https://github.com/1Vasari/songdown-compiler",
   "dependencies": {
-    "coffee-script": "1.8.0",
     "lodash": "2.4.1",
     "marked": "0.3.2",
     "normalize-newline": "1.0.1"
+  },
+  "devDependencies": {
+    "chai": "1.10.0",
+    "mocha": "2.1.0"
   }
 }
