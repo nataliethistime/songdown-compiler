@@ -8,6 +8,9 @@ This is the compiler component of the Songdown project.
 
 # Changes
 
+### 0.2.4
+- Started the labourous task of cleaning up compiled CoffeeScript and making it workable.
+
 ### 0.2.3 (2015-1-23)
 - Removed a random `console.log` that was left in accidentally.
 
