@@ -1,6 +1,6 @@
 {
   "name": "songdown-compiler",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "The compiler component of the Songdown project.",
   "main": "lib",
   "scripts": {
