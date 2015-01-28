@@ -1,18 +1,35 @@
 'use strict';
-var Song, expect;
 
-expect = require('chai').expect;
+var expect = require('chai').expect;
 
-Song = require('../lib');
+var fs = require('fs');
+
+var Song = require('../lib');
+var syntaxTest = fs.readFileSync(__dirname + '/test.songdown').toString();
+var song = new Song(syntaxTest);
+
 
 describe('Song', function() {
   it('should be a function', function() {
     expect(Song).to.be.a('function');
   });
+
   describe('#toHtml', function() {
-    var song;
-    song = new Song('Hello, World!');
-    expect(song.toHtml).to.be.a('function');
-    expect(song.toHtml()).to.equal('<p>Hello, World!</p>\n');
+    it('should be a function', function() {
+      expect(song.toHtml).to.be.a('function');
+    });
+
+    it('should output a string', function() {
+      var html = song.toHtml();
+      expect(html).to.be.a('string');
+    });
+  });
+
+  describe('#parse', function() {
+    var parsed = new Song(syntaxTest).parse();
+
+    it('should produce an array of nodes', function() {
+      expect(parsed).to.be.a('array');
+    });
   });
 });
