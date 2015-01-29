@@ -4,7 +4,7 @@
   "description": "The compiler component of the Songdown project.",
   "main": "lib",
   "scripts": {
-    "test": "node node_modules/mocha/bin/mocha -t 5000"
+    "test": "node node_modules/mocha/bin/mocha"
   },
   "repository": {
     "type": "git",
@@ -17,8 +17,8 @@
   },
   "homepage": "https://github.com/1Vasari/songdown-compiler",
   "dependencies": {
-    "lodash": "2.4.1",
-    "marked": "0.3.2",
+    "lodash": "3.0.0",
+    "marked": "0.3.3",
     "normalize-newline": "1.0.1"
   },
   "devDependencies": {

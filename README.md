@@ -6,7 +6,13 @@ This is the compiler component of the Songdown project.
 [![Code Climate](https://codeclimate.com/github/1vasari/songdown-compiler/badges/gpa.svg)](https://codeclimate.com/github/1vasari/songdown-compiler)
 [![Dependency Status](https://david-dm.org/1vasari/songdown-compiler.svg?style=flat-square)](https://david-dm.org/1vasari/songdown-compiler)
 
+[![NPM](https://nodei.co/npm/songdown-compiler.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/songdown-compiler/)
+
 # Changes
+
+### 0.2.5 (2015-1-29)
+- Updated some dependencies.
+- Added a new Badge in the readme.
 
 ### 0.2.4 (2015-1-28)
 - Started the laborious task of cleaning up compiled CoffeeScript and making it workable.
