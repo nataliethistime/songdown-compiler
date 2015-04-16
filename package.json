@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://1Vasari@github.com/1Vasari/songdown-compiler"
+    "url": "https://github.com/1vasari/songdown-compiler"
   },
   "author": "Nathan McCallum",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/1Vasari/songdown-compiler/issues"
+    "url": "https://github.com/1vasari/songdown-compiler/issues"
   },
-  "homepage": "https://github.com/1Vasari/songdown-compiler",
+  "homepage": "https://github.com/1vasari/songdown-compiler",
   "dependencies": {
     "lodash": "3.0.0",
     "marked": "0.3.3",
