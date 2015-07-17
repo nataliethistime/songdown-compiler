@@ -1,5 +1,4 @@
-songdown-compiler
-=================
+# songdown-compiler
 
 This is the compiler component of the Songdown project.
 
@@ -38,4 +37,4 @@ This is the compiler component of the Songdown project.
 
 # License
 
-This project is made with :heart: under the MIT license by Nathan McCallum.
+This project is made with love, under the MIT license, by [@1vasari](https://twitter.com/1vasari). :heart:
