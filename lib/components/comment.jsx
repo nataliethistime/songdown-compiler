@@ -1,7 +1,7 @@
 'use strict';
 
 var React = require('react');
-var marked = require('marked');
+var markdown = require('markdown').markdown;
 
 var Comment = React.createClass({
   propTypres: {
@@ -17,7 +17,7 @@ var Comment = React.createClass({
   render: function() {
 
     var thisIsDangerous = {
-      __html: marked(this.props.line)
+      __html: markdown.toHTML(this.props.line)
     };
 
     return (
