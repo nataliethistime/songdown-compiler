@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/1vasari/songdown-compiler",
   "dependencies": {
-    "lodash": "3.0.0",
+    "lodash": "3.10.0",
     "marked": "0.3.3",
     "node-jsx": "0.13.3",
     "normalize-newline": "1.0.2",
