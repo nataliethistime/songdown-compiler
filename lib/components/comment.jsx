@@ -5,23 +5,23 @@ var marked = require('marked');
 
 var Comment = React.createClass({
   propTypres: {
-    source: React.PropTypes.string.isRequired
+    line: React.PropTypes.string.isRequired
   },
 
   getDefaultProps: function() {
     return {
-      source: ''
+      line: ''
     };
   },
 
   render: function() {
 
     var thisIsDangerous = {
-      __html: marked(this.props.source)
+      __html: marked(this.props.line)
     };
 
     return (
-      <div dangerouslySetInnerHTML={thisIsDangerous}></div>
+      <div className="markdown" dangerouslySetInnerHTML={thisIsDangerous}></div>
     );
   }
 });

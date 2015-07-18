@@ -22,7 +22,7 @@ var ChordLine = React.createClass({
   render: function() {
     return (
       <div style={styles[this.props.theme].chordLine}>
-        {this.props.source}
+        <span style={styles[this.props.theme].line}>{this.props.source}</span>
       </div>
     );
   }
@@ -44,7 +44,7 @@ var LyricsLine = React.createClass({
   render: function() {
     return (
       <div style={styles[this.props.theme].lyricsLine}>
-        {this.props.source}
+        <span style={styles[this.props.theme].line}>{this.props.source}</span>
       </div>
     );
   }
@@ -66,7 +66,17 @@ var Verse = React.createClass({
   },
 
   parseStandardBlock: function(lines) {
-    return lines;
+    return _.map(lines, function(line, i) {
+      if (i % 2 === 0) {
+        return (
+          <ChordLine source={line} theme={this.props.theme} />
+        );
+      } else {
+        return (
+          <LyricsLine source={line} theme={this.props.theme} />
+        );
+      }
+    }, this);
   },
 
   parseChordBlock: function(lines) {

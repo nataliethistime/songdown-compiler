@@ -5,7 +5,7 @@ var React = require('react');
 var tokens = require('../tokens');
 var styles = require('../styles');
 
-var Header = React.createClass({
+var Goto = React.createClass({
 
   propTypes: {
     line: React.PropTypes.string.isRequired,
@@ -20,13 +20,14 @@ var Header = React.createClass({
   },
 
   render: function() {
-    var header = this.props.line.replace(tokens.ANY_VERSE_HEADER, '') + ':';
+    var goto = this.props.line.replace(tokens.GOTO, '');
+
     return (
-      <div style={styles[this.props.theme].header}>
-        {header}
-      </div>
+      <p>
+        Play <span style={styles[this.props.theme].goto}>{goto}</span>
+      </p>
     );
   }
 });
 
-module.exports = Header;
+module.exports = Goto;

@@ -2,11 +2,13 @@
 
 var React = require('react');
 var _ = require('lodash');
+var normalizeNewline = require('normalize-newline');
 
-var tokens = require('../tokens');
 var styles = require('../styles');
+var tokens = require('../tokens');
 
 var Comment = require('./comment');
+var Goto = require('./goto');
 var Header = require('./header');
 var Verse = require('./verse');
 
@@ -52,17 +54,23 @@ var Song = React.createClass({
         return nodes;
       }
 
-      nodes.push(
-        <Comment source={line} />
-      );
+      if (line.match(tokens.GOTO)) {
+        nodes.push(
+          <Goto line={line} theme={this.props.theme} />
+        );
+      } else {
+        nodes.push(
+          <Comment line={line} />
+        );
+      }
     }
 
-    var header = lines.shift();
 
     // These indicate whether the verse block contains chords, lyrics, or both.
     var chords = true;
     var lyrics = true;
 
+    var header = lines.shift();
     if (header.match(tokens.VERSE_CHORDS_HEADER)) {
       chords = true;
       lyrics = false;
@@ -71,7 +79,7 @@ var Song = React.createClass({
       lyrics = true;
     }
 
-    nodes.push(<Header source={header} theme={this.props.theme} />);
+    nodes.push(<Header line={header} theme={this.props.theme} />);
     nodes.push(
       <Verse lines={lines} theme={this.props.theme} chords={chords} lyrics={lyrics} />
     );
@@ -82,7 +90,7 @@ var Song = React.createClass({
   parse: function(source) {
     var nodes = [];
 
-    _.each(this.props.source.split(tokens.VERSE_END), function(section) {
+    _.each(source.split(tokens.VERSE_END), function(section) {
       var rv = this.parseSection(section);
 
       if (!_.isArray(rv)) {
@@ -96,7 +104,7 @@ var Song = React.createClass({
   },
 
   render: function() {
-    var nodes = this.parse(this.props.source);
+    var nodes = this.parse(normalizeNewline(this.props.source));
 
     return (
       <div style={styles[this.props.theme].song}>

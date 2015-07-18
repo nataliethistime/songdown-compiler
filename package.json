@@ -20,7 +20,7 @@
     "lodash": "3.0.0",
     "marked": "0.3.3",
     "node-jsx": "0.13.3",
-    "normalize-newline": "1.0.1",
+    "normalize-newline": "1.0.2",
     "react": "0.13.3"
   },
   "devDependencies": {
