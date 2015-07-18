@@ -13,6 +13,7 @@ This is the compiler component of the Songdown project.
 ### 0.3.0
 - Implemented a new compiler using the brilliant React JavaScript library.
 - Removed waffle.io from the README as I don't use it anymore.
+- Changed the module used to render markdown comment blocks. The old one was marked as insecure.
 
 ### 0.2.5 (2015-1-29)
 - Updated some dependencies.
