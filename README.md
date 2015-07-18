@@ -3,7 +3,6 @@
 This is the compiler component of the Songdown project.
 
 [![Code Climate](https://codeclimate.com/github/1vasari/songdown-compiler/badges/gpa.svg)](https://codeclimate.com/github/1vasari/songdown-compiler)
-[![Stories in Ready](https://badge.waffle.io/1vasari/songdown-compiler.svg?label=ready&title=Ready)](http://waffle.io/1vasari/songdown-compiler)
 [![Dependency Status](https://david-dm.org/1vasari/songdown-compiler.svg)](https://david-dm.org/1vasari/songdown-compiler)
 [![devDependency Status](https://david-dm.org/1vasari/songdown-compiler/dev-status.svg)](https://david-dm.org/1vasari/songdown-compiler#info=devDependencies)
 
