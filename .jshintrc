@@ -42,5 +42,12 @@
   "sub"           : false,
   "trailing"      : true,
   "white"         : false,
-  "indent"        : 4
+  "indent"        : 2,
+
+  "globals": {
+    "jest": false,
+    "it": false,
+    "describe": false,
+    "expect": false
+  }
 }

@@ -4,7 +4,7 @@
   "description": "The compiler component of the Songdown project.",
   "main": "lib",
   "scripts": {
-    "test": "node test/testRunner.js"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,10 @@
     "react": "0.13.3"
   },
   "devDependencies": {
-    "html": "0.0.10"
+    "html": "0.0.10",
+    "jest-cli": "0.4.15"
+  },
+  "jest": {
+    "rootDir": "lib"
   }
 }
