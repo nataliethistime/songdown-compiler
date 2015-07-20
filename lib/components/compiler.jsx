@@ -12,7 +12,7 @@ var Goto = require('./goto');
 var Header = require('./header');
 var Verse = require('./verse');
 
-var Song = React.createClass({
+var Compiler = React.createClass({
 
   propTypes: {
     source: React.PropTypes.string.isRequired,
@@ -114,4 +114,4 @@ var Song = React.createClass({
   }
 });
 
-module.exports = Song;
+module.exports = Compiler;

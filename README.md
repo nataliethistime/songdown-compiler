@@ -11,6 +11,9 @@ This is the compiler component of the Songdown project.
 
 # Changes
 
+### 0.3.2 (2015-07-20)
+- Publishing a React component is hard, apparently. :sob:
+
 ### 0.3.1 (2015-07-20)
 - Some fixes.
 

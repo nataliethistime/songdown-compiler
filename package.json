@@ -2,10 +2,10 @@
   "name": "songdown-compiler",
   "version": "0.3.1",
   "description": "The compiler component of the Songdown project.",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "jest",
-    "build": "browserify -o index.js -e lib",
+    "build": "browserify -o dist/index.js -e lib",
     "prepublish": "npm run build"
   },
   "repository": {
