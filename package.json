@@ -2,11 +2,9 @@
   "name": "songdown-compiler",
   "version": "0.3.2",
   "description": "The compiler component of the Songdown project.",
-  "main": "dist/index.js",
+  "main": "lib",
   "scripts": {
-    "test": "jest",
-    "build": "browserify -o dist/index.js -e lib",
-    "prepublish": "npm run build"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -21,15 +19,13 @@
   "dependencies": {
     "lodash": "3.10.0",
     "markdown": "0.5.0",
-    "node-jsx": "0.13.3",
     "normalize-newline": "1.0.2",
     "react": "0.13.3"
   },
   "devDependencies": {
-    "browserify": "11.0.0",
     "html": "0.0.10",
-    "jest-cli": "0.4.15",
-    "reactify": "1.1.1"
+    "node-jsx": "0.13.3",
+    "jest-cli": "0.4.15"
   },
   "jest": {
     "rootDir": "lib"
