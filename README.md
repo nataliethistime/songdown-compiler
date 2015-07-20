@@ -11,6 +11,9 @@ This is the compiler component of the Songdown project.
 
 # Changes
 
+### 0.3.1 (2015-07-20)
+- Some fixes.
+
 ### 0.3.0 (2015-07-20)
 - Implemented a new compiler using the brilliant React JavaScript library.
 - Removed waffle.io from the README as I don't use it anymore.
