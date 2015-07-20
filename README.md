@@ -11,6 +11,9 @@ This is the compiler component of the Songdown project.
 
 # Changes
 
+### 0.3.4 (2015-07-20)
+- Nope
+
 ### 0.3.3 (2015-07-20)
 - Things still aren't right. :sob:
 

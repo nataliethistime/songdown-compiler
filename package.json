@@ -2,7 +2,7 @@
   "name": "songdown-compiler",
   "version": "0.3.3",
   "description": "The compiler component of the Songdown project.",
-  "main": "lib",
+  "main": "lib/components/compiler",
   "scripts": {
     "test": "jest"
   },
