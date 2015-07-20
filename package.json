@@ -1,6 +1,6 @@
 {
   "name": "songdown-compiler",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "The compiler component of the Songdown project.",
   "main": "index.js",
   "scripts": {
@@ -35,6 +35,8 @@
     "rootDir": "lib"
   },
   "browserify": {
-    "transform": ["reactify"]
+    "transform": [
+      "reactify"
+    ]
   }
 }
