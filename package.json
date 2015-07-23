@@ -1,6 +1,6 @@
 {
   "name": "songdown-compiler",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "description": "The compiler component of the Songdown project.",
   "main": "dist/bundle.js",
   "scripts": {
