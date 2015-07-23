@@ -8,10 +8,12 @@ module.exports = {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js'
   },
-  externals: {
-    'react': 'React',
-    'lodash': '_'
-  },
+  externals: [
+    {
+      'react': true,
+      'lodash': true
+    }
+  ],
   module: {
     loaders: [
       {

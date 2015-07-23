@@ -11,7 +11,10 @@ This is the compiler component of the Songdown project.
 
 # Changes
 
-### 0.3.5 (2025-07-23)
+### 0.3.6 (2015-07-23)
+- Improvements to Webpack build.
+
+### 0.3.5 (2015-07-23)
 - Use Webpack.
 
 ### 0.3.4 (2015-07-20)

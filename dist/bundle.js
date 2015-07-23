@@ -167,13 +167,13 @@
 /* 1 */
 /***/ function(module, exports) {
 
-	module.exports = React;
+	module.exports = react;
 
 /***/ },
 /* 2 */
 /***/ function(module, exports) {
 
-	module.exports = _;
+	module.exports = lodash;
 
 /***/ },
 /* 3 */
