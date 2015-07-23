@@ -7,10 +7,10 @@ var normalizeNewline = require('normalize-newline');
 var styles = require('../styles');
 var tokens = require('../tokens');
 
-var Comment = require('./comment.jsx');
-var Goto = require('./goto.jsx');
-var Header = require('./header.jsx');
-var Verse = require('./verse.jsx');
+var Comment = require('./comment');
+var Goto = require('./goto');
+var Header = require('./header');
+var Verse = require('./verse');
 
 var Compiler = React.createClass({
 

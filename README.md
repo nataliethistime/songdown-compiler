@@ -11,6 +11,9 @@ This is the compiler component of the Songdown project.
 
 # Changes
 
+### 0.3.8 (2015-07-23)
+- This is starting to drag on...
+
 ### 0.3.7 (2015-07-23)
 - Now trying Babel.
 
