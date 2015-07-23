@@ -2,10 +2,11 @@
   "name": "songdown-compiler",
   "version": "0.3.6",
   "description": "The compiler component of the Songdown project.",
-  "main": "dist/bundle.js",
+  "main": "dist/components/compiler",
   "scripts": {
     "test": "jest",
-    "build": "webpack",
+    "prebuild": "rimraf ./dist",
+    "build": "babel --out-dir dist ./lib",
     "prepublish": "npm run build"
   },
   "repository": {
@@ -19,18 +20,19 @@
   },
   "homepage": "https://github.com/1vasari/songdown-compiler",
   "dependencies": {
-    "lodash": "3.10.0",
     "markdown": "0.5.0",
     "normalize-newline": "1.0.2"
   },
+  "peerDependencies": {
+    "lodash": "3.x.x",
+    "react": "0.13.x"
+  },
   "devDependencies": {
+    "babel": "5.8.3",
     "html": "0.0.10",
     "jest-cli": "0.4.15",
-    "jsx-loader": "0.13.2",
     "node-jsx": "0.13.3",
-    "node-libs-browser": "0.5.2",
-    "webpack": "1.10.1",
-    "react": "0.13.3"
+    "rimraf": "2.4.2"
   },
   "jest": {
     "rootDir": "lib"
