@@ -3,26 +3,32 @@
 var React = require('react');
 var _ = require('lodash');
 
+var transpose = require('songdown-transpose');
+
 var styles = require('../styles');
 
 
 var ChordLine = React.createClass({
   propTypes: {
     source: React.PropTypes.string.isRequired,
-    theme: React.PropTypes.string.isRequired
+    theme: React.PropTypes.string.isRequired,
+    transpose: React.PropTypes.number.isRequired
   },
 
   getDefaultProps: function() {
     return {
       source: '',
-      theme: 'default'
+      theme: 'default',
+      transpose: 0
     };
   },
 
   render: function() {
+    var line = transpose.transposeLine(this.props.source, this.props.transpose);
+
     return (
       <div style={styles[this.props.theme].chordLine}>
-        <span style={styles[this.props.theme].line}>{this.props.source}</span>
+        <span style={styles[this.props.theme].line}>{line}</span>
       </div>
     );
   }
@@ -54,14 +60,16 @@ var Verse = React.createClass({
   propTypes: {
     chords: React.PropTypes.bool.isRequired,
     lyrics: React.PropTypes.bool.isRequired,
-    lines: React.PropTypes.array.isRequired
+    lines: React.PropTypes.array.isRequired,
+    transpose: React.PropTypes.number.isRequired
   },
 
   getDefaultProps: function() {
     return {
       chords: true,
       lyrics: true,
-      lines: ''
+      lines: '',
+      transpose: 0
     };
   },
 
@@ -69,7 +77,7 @@ var Verse = React.createClass({
     return _.map(lines, function(line, i) {
       if (i % 2 === 0) {
         return (
-          <ChordLine source={line} theme={this.props.theme} />
+          <ChordLine source={line} theme={this.props.theme} transpose={this.props.transpose} />
         );
       } else {
         return (
@@ -82,7 +90,7 @@ var Verse = React.createClass({
   parseChordBlock: function(lines) {
     return _.map(lines, function(line) {
       return (
-        <ChordLine source={line} theme={this.props.theme} />
+        <ChordLine source={line} theme={this.props.theme} transpose={this.props.transpose} />
       );
     }, this);
   },

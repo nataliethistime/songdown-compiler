@@ -16,13 +16,15 @@ var Compiler = React.createClass({
 
   propTypes: {
     source: React.PropTypes.string.isRequired,
-    theme: React.PropTypes.string
+    theme: React.PropTypes.string,
+    transpose: React.PropTypes.number
   },
 
   getDefaultProps: function() {
     return {
       source: '',
-      theme: 'default'
+      theme: 'default',
+      transpose: 0
     }
   },
 
@@ -81,7 +83,13 @@ var Compiler = React.createClass({
 
     nodes.push(<Header line={header} theme={this.props.theme} />);
     nodes.push(
-      <Verse lines={lines} theme={this.props.theme} chords={chords} lyrics={lyrics} />
+      <Verse
+        lines={lines}
+        theme={this.props.theme}
+        transpose={this.props.transpose}
+        chords={chords}
+        lyrics={lyrics}
+      />
     );
 
     return nodes;

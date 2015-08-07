@@ -21,7 +21,8 @@
   "homepage": "https://github.com/1vasari/songdown-compiler",
   "dependencies": {
     "markdown": "0.5.0",
-    "normalize-newline": "1.0.2"
+    "normalize-newline": "1.0.2",
+    "songdown-transpose": "0.3.0"
   },
   "peerDependencies": {
     "lodash": "3.x.x",
@@ -31,7 +32,9 @@
     "babel": "5.8.3",
     "html": "0.0.10",
     "jest-cli": "0.4.15",
+    "lodash": "3.10.1",
     "node-jsx": "0.13.3",
+    "react": "0.13.3",
     "rimraf": "2.4.2"
   },
   "jest": {

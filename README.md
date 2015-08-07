@@ -11,6 +11,9 @@ This is the compiler component of the Songdown project.
 
 # Changes
 
+### 0.4.0 (2015-08-07)
+- Implemented transposing.
+
 ### 0.3.8 (2015-07-23)
 - This is starting to drag on...
 
