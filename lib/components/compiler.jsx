@@ -17,14 +17,16 @@ var Compiler = React.createClass({
   propTypes: {
     source: React.PropTypes.string.isRequired,
     theme: React.PropTypes.string,
-    transpose: React.PropTypes.number
+    transpose: React.PropTypes.number,
+    fontSize: React.PropTypes.number
   },
 
   getDefaultProps: function() {
     return {
       source: '',
       theme: 'default',
-      transpose: 0
+      transpose: 0,
+      fontSize: 16
     }
   },
 
@@ -113,9 +115,10 @@ var Compiler = React.createClass({
 
   render: function() {
     var nodes = this.parse(normalizeNewline(this.props.source));
+    var style = _.merge({}, styles[this.props.theme].song, {fontSize: this.props.fontSize});
 
     return (
-      <div style={styles[this.props.theme].song}>
+      <div style={style}>
         {nodes}
       </div>
     );

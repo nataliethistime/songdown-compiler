@@ -9,31 +9,52 @@ var Compiler = require('../lib/components/compiler');
 
 var syntaxTest = fs.readFileSync(__dirname + '/test.songdown').toString();
 
-var arr = [];
+var Separator = React.createClass({
+  render: function() {
+    return (
+      <span>
+        <br /><br /><hr /><br /><br />
+      </span>
+    );
+  }
+});
 
-arr.push(React.renderToStaticMarkup(
-  <Compiler
-    source={syntaxTest}
-    theme="default"
-  />
-));
+var Test = React.createClass({
+  render: function() {
+    return (
+      <div>
+        <Compiler
+          source={syntaxTest}
+          theme="default"
+        />
 
-arr.push(React.renderToStaticMarkup(
-  <Compiler
-    source={syntaxTest}
-    theme="default"
-    transpose={2}
-  />
-));
+        <Separator />
 
-arr.push(React.renderToStaticMarkup(
-  <Compiler
-    source={syntaxTest}
-    theme="default"
-    transpose={-2}
-  />
-));
+        <Compiler
+          source={syntaxTest}
+          theme="default"
+          transpose={2}
+        />
 
-var html = arr.join('<br /><br /><hr /><br /><br />');
+        <Separator />
 
+        <Compiler
+          source={syntaxTest}
+          theme="default"
+          transpose={-2}
+        />
+
+        <Separator />
+
+        <Compiler
+          source={syntaxTest}
+          theme="default"
+          fontSize={20}
+        />
+      </div>
+    );
+  }
+});
+
+var html = React.renderToStaticMarkup(<Test />);
 fs.writeFileSync(__dirname + '/test.html', prettyPrint(html));
