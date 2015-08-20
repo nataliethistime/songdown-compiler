@@ -11,7 +11,7 @@ This is the compiler component of the Songdown project.
 
 # Changes
 
-### 0.5.0
+### 0.5.0 (2015-08-20 )
 - Implemented `fontSize` prop that changes the font size of the song.
 - Implemented options for hiding chords, comments and GOTOs.
 
