@@ -51,6 +51,30 @@ var Test = React.createClass({
           theme="default"
           fontSize={20}
         />
+
+        <Separator />
+
+        <Compiler
+          source={syntaxTest}
+          theme="default"
+          showChords={false}
+        />
+
+        <Separator />
+
+        <Compiler
+          source={syntaxTest}
+          theme="default"
+          showGOTOs={false}
+        />
+
+        <Separator />
+
+        <Compiler
+          source={syntaxTest}
+          theme="default"
+          showComments={false}
+        />
       </div>
     );
   }

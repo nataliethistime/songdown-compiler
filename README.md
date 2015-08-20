@@ -13,6 +13,7 @@ This is the compiler component of the Songdown project.
 
 ### 0.5.0
 - Implemented `fontSize` prop that changes the font size of the song.
+- Implemented options for hiding chords, comments and GOTOs.
 
 ### 0.4.0 (2015-08-07)
 - Implemented transposing.

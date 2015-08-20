@@ -12,25 +12,31 @@ var ChordLine = React.createClass({
   propTypes: {
     source: React.PropTypes.string.isRequired,
     theme: React.PropTypes.string.isRequired,
-    transpose: React.PropTypes.number.isRequired
+    transpose: React.PropTypes.number.isRequired,
+    showChords: React.PropTypes.bool.isRequired
   },
 
   getDefaultProps: function() {
     return {
       source: '',
       theme: 'default',
-      transpose: 0
+      transpose: 0,
+      showChords: true
     };
   },
 
   render: function() {
     var line = transpose.transposeLine(this.props.source, this.props.transpose);
 
-    return (
-      <div style={styles[this.props.theme].chordLine}>
-        <span style={styles[this.props.theme].line}>{line}</span>
-      </div>
-    );
+    if (this.props.showChords) {
+      return (
+        <div style={styles[this.props.theme].chordLine}>
+          <span style={styles[this.props.theme].line}>{line}</span>
+        </div>
+      );
+    } else {
+      return <span></span>;
+    }
   }
 });
 
@@ -61,7 +67,8 @@ var Verse = React.createClass({
     chords: React.PropTypes.bool.isRequired,
     lyrics: React.PropTypes.bool.isRequired,
     lines: React.PropTypes.array.isRequired,
-    transpose: React.PropTypes.number.isRequired
+    transpose: React.PropTypes.number.isRequired,
+    showChords: React.PropTypes.bool.isRequired
   },
 
   getDefaultProps: function() {
@@ -69,7 +76,8 @@ var Verse = React.createClass({
       chords: true,
       lyrics: true,
       lines: '',
-      transpose: 0
+      transpose: 0,
+      showChords: true
     };
   },
 
@@ -77,7 +85,12 @@ var Verse = React.createClass({
     return _.map(lines, function(line, i) {
       if (i % 2 === 0) {
         return (
-          <ChordLine source={line} theme={this.props.theme} transpose={this.props.transpose} />
+          <ChordLine
+            source={line}
+            theme={this.props.theme}
+            transpose={this.props.transpose}
+            showChords={this.props.showChords}
+          />
         );
       } else {
         return (
@@ -90,7 +103,12 @@ var Verse = React.createClass({
   parseChordBlock: function(lines) {
     return _.map(lines, function(line) {
       return (
-        <ChordLine source={line} theme={this.props.theme} transpose={this.props.transpose} />
+        <ChordLine
+          source={line}
+          theme={this.props.theme}
+          transpose={this.props.transpose}
+          showChords={this.props.showChords}
+        />
       );
     }, this);
   },

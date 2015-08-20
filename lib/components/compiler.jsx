@@ -18,7 +18,10 @@ var Compiler = React.createClass({
     source: React.PropTypes.string.isRequired,
     theme: React.PropTypes.string,
     transpose: React.PropTypes.number,
-    fontSize: React.PropTypes.number
+    fontSize: React.PropTypes.number,
+    showChords: React.PropTypes.bool,
+    showGOTOs: React.PropTypes.bool,
+    showComments: React.PropTypes.bool
   },
 
   getDefaultProps: function() {
@@ -26,7 +29,10 @@ var Compiler = React.createClass({
       source: '',
       theme: 'default',
       transpose: 0,
-      fontSize: 16
+      fontSize: 16,
+      showChords: true,
+      showGOTOs: true,
+      showComments: true
     }
   },
 
@@ -59,13 +65,17 @@ var Compiler = React.createClass({
       }
 
       if (line.match(tokens.GOTO)) {
-        nodes.push(
-          <Goto line={line} theme={this.props.theme} />
-        );
+        if (this.props.showGOTOs) {
+          nodes.push(
+            <Goto line={line} theme={this.props.theme} />
+          );
+        }
       } else {
-        nodes.push(
-          <Comment line={line} />
-        );
+        if (this.props.showComments) {
+          nodes.push(
+            <Comment line={line} />
+          );
+        }
       }
     }
 
@@ -89,6 +99,7 @@ var Compiler = React.createClass({
         lines={lines}
         theme={this.props.theme}
         transpose={this.props.transpose}
+        showChords={this.props.showChords}
         chords={chords}
         lyrics={lyrics}
       />
