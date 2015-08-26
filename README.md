@@ -1,6 +1,6 @@
 # songdown-compiler
 
-This is the compiler component of the Songdown project.
+This is the compiler component of the Songdown project it implements [this syntax](https://github.com/1vasari/songdown-app/wiki/The-Songdown-Syntax).
 
 [![Code Climate](https://codeclimate.com/github/1vasari/songdown-compiler/badges/gpa.svg)](https://codeclimate.com/github/1vasari/songdown-compiler)
 [![Build Status](https://travis-ci.org/1vasari/songdown-compiler.svg)](https://travis-ci.org/1vasari/songdown-compiler)
