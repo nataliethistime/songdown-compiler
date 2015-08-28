@@ -11,6 +11,9 @@ This is the compiler component of the Songdown project it implements [this synta
 
 # Changes
 
+### 1.0.0
+- Implemented guitar tab verse type.
+
 ### 0.5.0 (2015-08-20)
 - Implemented `fontSize` prop that changes the font size of the song.
 - Implemented options for hiding chords, comments and GOTOs.
