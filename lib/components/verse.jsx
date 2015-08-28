@@ -42,13 +42,13 @@ var ChordLine = React.createClass({
 
 var LyricsLine = React.createClass({
   propTypes: {
-    source: React.PropTypes.string.isRequired,
+    line: React.PropTypes.string.isRequired,
     theme: React.PropTypes.string.isRequired
   },
 
   getDefaultProps: function() {
     return {
-      source: '',
+      line: '',
       theme: 'default'
     };
   },
@@ -56,7 +56,29 @@ var LyricsLine = React.createClass({
   render: function() {
     return (
       <div style={styles[this.props.theme].lyricsLine}>
-        <span style={styles[this.props.theme].line}>{this.props.source}</span>
+        <span style={styles[this.props.theme].line}>{this.props.line}</span>
+      </div>
+    );
+  }
+});
+
+var TabLine = React.createClass({
+  propTypes: {
+    line: React.PropTypes.string.isRequired,
+    theme: React.PropTypes.string.isRequired
+  },
+
+  getDefaultProps: function() {
+    return {
+      line: '',
+      theme: 'default'
+    };
+  },
+
+  render: function() {
+    return (
+      <div style={styles[this.props.theme].tabLine}>
+        <span style={styles[this.props.theme].line}>{this.props.line}</span>
       </div>
     );
   }
@@ -121,13 +143,23 @@ var Verse = React.createClass({
     }, this);
   },
 
+  parseTabBlock: function(lines) {
+    return _.map(lines, function(line) {
+      return (
+        <TabLine line={line} theme={this.props.theme} />
+      );
+    }, this);
+  },
+
   parse: function(lines) {
     if (this.props.chords && this.props.lyrics) {
       return this.parseStandardBlock(lines);
     } else if (this.props.chords && !this.props.lyrics) {
       return this.parseChordBlock(lines);
-    } else {
+    } else if (!this.props.chords && this.props.lyrics) {
       return this.parseLyricsBlock(lines);
+    } else {
+      return this.parseTabBlock(lines);
     }
   },
 

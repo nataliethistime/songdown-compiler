@@ -57,10 +57,11 @@ var Compiler = React.createClass({
       return line !== '';
     });
 
-    while (!this.isHeader(_.first(lines))) {
+    while (!this.isHeader(lines[0])) {
       var line = lines.shift();
 
       if (!line) {
+        // We've run out of lines.
         return nodes;
       }
 
@@ -79,7 +80,6 @@ var Compiler = React.createClass({
       }
     }
 
-
     // These indicate whether the verse block contains chords, lyrics, or both.
     var chords = true;
     var lyrics = true;
@@ -91,6 +91,9 @@ var Compiler = React.createClass({
     } else if (header.match(tokens.VERSE_LYRICS_HEADER)) {
       chords = false;
       lyrics = true;
+    } else if (header.match(tokens.VERSE_TAB_HEADER)) {
+      chords = false;
+      lyrics = false;
     }
 
     nodes.push(<Header line={header} theme={this.props.theme} />);
