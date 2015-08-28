@@ -15,6 +15,7 @@ This is the compiler component of the Songdown project it implements [this synta
 - Implemented guitar tab verse type.
 - Change the verse ending token to reduce confusion with guitar tab.
 - Refactored and tidied up the code.
+- Show proper flat and sharp symbols!
 
 ### 0.5.0 (2015-08-20)
 - Implemented `fontSize` prop that changes the font size of the song.
