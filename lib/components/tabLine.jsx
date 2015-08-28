@@ -2,11 +2,9 @@
 
 var React = require('react');
 
-var tokens = require('../tokens');
 var styles = require('../styles');
 
-var Header = React.createClass({
-
+var TabLine = React.createClass({
   propTypes: {
     line: React.PropTypes.string.isRequired,
     theme: React.PropTypes.string.isRequired
@@ -20,15 +18,12 @@ var Header = React.createClass({
   },
 
   render: function() {
-    // Normalize the symbol at the end of the header.
-    var header = this.props.line.replace(tokens.ANY_VERSE_HEADER, '') + ':';
-
     return (
-      <div style={styles[this.props.theme].header}>
-        {header}
+      <div style={styles[this.props.theme].tabLine}>
+        <span style={styles[this.props.theme].line}>{this.props.line}</span>
       </div>
     );
   }
 });
 
-module.exports = Header;
+module.exports = TabLine;

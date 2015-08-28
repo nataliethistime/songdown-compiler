@@ -12,6 +12,8 @@ var Goto = require('./goto');
 var Header = require('./header');
 var Verse = require('./verse');
 
+var util = require('../util');
+
 var Compiler = React.createClass({
 
   propTypes: {
@@ -37,50 +39,13 @@ var Compiler = React.createClass({
   },
 
   isHeader: function(line) {
-    if (!line) {
-      return false;
-    }
-
-    var match = line.match(tokens.ANY_VERSE_HEADER);
-
-    if (_.isArray(match)) {
-      return true;
-    } else {
-      return false;
-    }
+    return util.regexMatches(line, tokens.ANY_VERSE_HEADER);
   },
 
-  parseSection: function(section) {
+  parseVerse: function(lines) {
     var nodes = [];
 
-    var lines = _.filter(section.split('\n'), function(line) {
-      return line !== '';
-    });
-
-    while (!this.isHeader(lines[0])) {
-      var line = lines.shift();
-
-      if (!line) {
-        // We've run out of lines.
-        return nodes;
-      }
-
-      if (line.match(tokens.GOTO)) {
-        if (this.props.showGOTOs) {
-          nodes.push(
-            <Goto line={line} theme={this.props.theme} />
-          );
-        }
-      } else {
-        if (this.props.showComments) {
-          nodes.push(
-            <Comment line={line} />
-          );
-        }
-      }
-    }
-
-    // These indicate whether the verse block contains chords, lyrics, or both.
+    // These indicate whether the verse block contains chords, lyrics, both, or none.
     var chords = true;
     var lyrics = true;
 
@@ -111,24 +76,56 @@ var Compiler = React.createClass({
     return nodes;
   },
 
-  parse: function(source) {
+  parseSection: function(lines) {
     var nodes = [];
 
-    _.each(source.split(tokens.VERSE_END), function(section) {
-      var rv = this.parseSection(section);
+    while (!this.isHeader(lines[0])) {
+      var line = lines.shift();
 
-      if (!_.isArray(rv)) {
-        rv = [rv];
+      if (!line) {
+        // We've run out of lines.
+        return nodes;
       }
 
-      nodes = nodes.concat(rv);
+      if (line.match(tokens.GOTO)) {
+        if (this.props.showGOTOs) {
+          nodes.push(
+            <Goto line={line} theme={this.props.theme} />
+          );
+        }
+      } else {
+        if (this.props.showComments) {
+          nodes.push(
+            <Comment line={line} />
+          );
+        }
+      }
+    }
+
+    return util.joinToArray(nodes, this.parseVerse(lines));
+  },
+
+  // Split by newline and remove all empty lines.
+  splitSection: function(section) {
+    return _.filter(section.split('\n'), function(line) {
+      return line !== '';
+    });
+  },
+
+  parse: function(source) {
+    var nodes = [];
+    source = normalizeNewline(source);
+
+    _.each(source.split(tokens.VERSE_END), function(section) {
+      var parsedSection = this.parseSection(this.splitSection(section));
+      nodes = util.joinToArray(nodes, parsedSection);
     }, this);
 
     return nodes;
   },
 
   render: function() {
-    var nodes = this.parse(normalizeNewline(this.props.source));
+    var nodes = this.parse(this.props.source);
     var style = _.merge({}, styles[this.props.theme].song, {fontSize: this.props.fontSize});
 
     return (

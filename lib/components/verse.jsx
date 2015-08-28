@@ -3,86 +3,11 @@
 var React = require('react');
 var _ = require('lodash');
 
-var transpose = require('songdown-transpose');
-
 var styles = require('../styles');
 
-
-var ChordLine = React.createClass({
-  propTypes: {
-    source: React.PropTypes.string.isRequired,
-    theme: React.PropTypes.string.isRequired,
-    transpose: React.PropTypes.number.isRequired,
-    showChords: React.PropTypes.bool.isRequired
-  },
-
-  getDefaultProps: function() {
-    return {
-      source: '',
-      theme: 'default',
-      transpose: 0,
-      showChords: true
-    };
-  },
-
-  render: function() {
-    var line = transpose.transposeLine(this.props.source, this.props.transpose);
-
-    if (this.props.showChords) {
-      return (
-        <div style={styles[this.props.theme].chordLine}>
-          <span style={styles[this.props.theme].line}>{line}</span>
-        </div>
-      );
-    } else {
-      return <span></span>;
-    }
-  }
-});
-
-var LyricsLine = React.createClass({
-  propTypes: {
-    line: React.PropTypes.string.isRequired,
-    theme: React.PropTypes.string.isRequired
-  },
-
-  getDefaultProps: function() {
-    return {
-      line: '',
-      theme: 'default'
-    };
-  },
-
-  render: function() {
-    return (
-      <div style={styles[this.props.theme].lyricsLine}>
-        <span style={styles[this.props.theme].line}>{this.props.line}</span>
-      </div>
-    );
-  }
-});
-
-var TabLine = React.createClass({
-  propTypes: {
-    line: React.PropTypes.string.isRequired,
-    theme: React.PropTypes.string.isRequired
-  },
-
-  getDefaultProps: function() {
-    return {
-      line: '',
-      theme: 'default'
-    };
-  },
-
-  render: function() {
-    return (
-      <div style={styles[this.props.theme].tabLine}>
-        <span style={styles[this.props.theme].line}>{this.props.line}</span>
-      </div>
-    );
-  }
-});
+var ChordLine = require('./chordLine');
+var LyricLine = require('./lyricLine');
+var TabLine = require('./tabLine');
 
 var Verse = React.createClass({
   propTypes: {
@@ -116,7 +41,7 @@ var Verse = React.createClass({
         );
       } else {
         return (
-          <LyricsLine source={line} theme={this.props.theme} />
+          <LyricLine source={line} theme={this.props.theme} />
         );
       }
     }, this);
@@ -135,10 +60,10 @@ var Verse = React.createClass({
     }, this);
   },
 
-  parseLyricsBlock: function(lines) {
+  parseLyricBlock: function(lines) {
     return _.map(lines, function(line) {
       return (
-        <LyricsLine source={line} theme={this.props.theme} />
+        <LyricLine source={line} theme={this.props.theme} />
       );
     }, this);
   },
@@ -157,7 +82,7 @@ var Verse = React.createClass({
     } else if (this.props.chords && !this.props.lyrics) {
       return this.parseChordBlock(lines);
     } else if (!this.props.chords && this.props.lyrics) {
-      return this.parseLyricsBlock(lines);
+      return this.parseLyricBlock(lines);
     } else {
       return this.parseTabBlock(lines);
     }
