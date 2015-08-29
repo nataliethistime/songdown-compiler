@@ -33,7 +33,7 @@ var Verse = React.createClass({
       if (i % 2 === 0) {
         return (
           <ChordLine
-            source={line}
+            line={line}
             theme={this.props.theme}
             transpose={this.props.transpose}
             showChords={this.props.showChords}
@@ -41,7 +41,7 @@ var Verse = React.createClass({
         );
       } else {
         return (
-          <LyricLine source={line} theme={this.props.theme} />
+          <LyricLine line={line} theme={this.props.theme} />
         );
       }
     }, this);
@@ -51,7 +51,7 @@ var Verse = React.createClass({
     return _.map(lines, function(line) {
       return (
         <ChordLine
-          source={line}
+          line={line}
           theme={this.props.theme}
           transpose={this.props.transpose}
           showChords={this.props.showChords}
@@ -63,7 +63,7 @@ var Verse = React.createClass({
   parseLyricBlock: function(lines) {
     return _.map(lines, function(line) {
       return (
-        <LyricLine source={line} theme={this.props.theme} />
+        <LyricLine line={line} theme={this.props.theme} />
       );
     }, this);
   },

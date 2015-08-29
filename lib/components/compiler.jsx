@@ -50,6 +50,7 @@ var Compiler = React.createClass({
     var lyrics = true;
 
     var header = lines.shift();
+
     if (header.match(tokens.VERSE_CHORDS_HEADER)) {
       chords = true;
       lyrics = false;
@@ -61,7 +62,15 @@ var Compiler = React.createClass({
       lyrics = false;
     }
 
-    nodes.push(<Header line={header} theme={this.props.theme} />);
+    nodes.push(
+      <Header
+        line={header}
+        theme={this.props.theme}
+        chords={this.props.showChords}
+        lyrics={lyrics}
+      />
+    );
+
     nodes.push(
       <Verse
         lines={lines}

@@ -8,7 +8,7 @@ var styles = require('../styles');
 
 var ChordLine = React.createClass({
   propTypes: {
-    source: React.PropTypes.string.isRequired,
+    line: React.PropTypes.string.isRequired,
     theme: React.PropTypes.string.isRequired,
     transpose: React.PropTypes.number.isRequired,
     showChords: React.PropTypes.bool.isRequired
@@ -16,31 +16,20 @@ var ChordLine = React.createClass({
 
   getDefaultProps: function() {
     return {
-      source: '',
+      line: '',
       theme: 'default',
       transpose: 0,
       showChords: true
     };
   },
 
-  fixAccidentals: function(line) {
-    return line
-      // http://www.fileformat.info/info/unicode/char/266f/index.htm
-      .replace(/#/g, '&#9839;')
-      // http://www.fileformat.info/info/unicode/char/266d/index.htm
-      .replace(/(\S)b/g, '$1' + '&#9837;');
-  },
-
   render: function() {
-    var line = transpose.transposeLine(this.props.source, this.props.transpose);
+    var line = transpose.transposeLine(this.props.line, this.props.transpose);
 
     if (this.props.showChords) {
       return (
         <div style={styles[this.props.theme].chordLine}>
-          <div
-            dangerouslySetInnerHTML={{__html: this.fixAccidentals(line)}}
-            style={styles[this.props.theme].line}
-          ></div>
+          <span style={styles[this.props.theme].line}>{line}</span>
         </div>
       );
     } else {
