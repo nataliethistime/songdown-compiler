@@ -63,23 +63,23 @@ var Compiler = React.createClass({
     }
 
     nodes.push(
-      <Header
-        line={header}
-        theme={this.props.theme}
-        chords={this.props.showChords}
-        lyrics={lyrics}
-      />
-    );
+      <div style={styles[this.props.theme].verseWrapper}>
+        <Header
+          line={header}
+          theme={this.props.theme}
+          chords={this.props.showChords}
+          lyrics={lyrics}
+        />
 
-    nodes.push(
-      <Verse
-        lines={lines}
-        theme={this.props.theme}
-        transpose={this.props.transpose}
-        showChords={this.props.showChords}
-        chords={chords}
-        lyrics={lyrics}
-      />
+        <Verse
+          lines={lines}
+          theme={this.props.theme}
+          transpose={this.props.transpose}
+          showChords={this.props.showChords}
+          chords={chords}
+          lyrics={lyrics}
+        />
+      </div>
     );
 
     return nodes;

@@ -16,6 +16,7 @@ This is the compiler component of the Songdown project it implements [this synta
 - Change the verse ending token to reduce confusion with guitar tab.
 - Refactored and tidied up the code.
 - Hide verse headers when there's nothing in the verses themselves.
+- Fixed verses getting cut across pages when printed out.
 
 ### 0.5.0 (2015-08-20)
 - Implemented `fontSize` prop that changes the font size of the song.
