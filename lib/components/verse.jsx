@@ -5,9 +5,9 @@ var _ = require('lodash');
 
 var styles = require('../styles');
 
-var ChordLine = require('./chordLine');
-var LyricLine = require('./lyricLine');
-var TabLine = require('./tabLine');
+var ChordLine = require('./chordLine.jsx');
+var LyricLine = require('./lyricLine.jsx');
+var TabLine = require('./tabLine.jsx');
 
 var Verse = React.createClass({
   propTypes: {
