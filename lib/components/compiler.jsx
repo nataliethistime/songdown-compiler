@@ -28,6 +28,13 @@ var Compiler = React.createClass({
 
   statics: {
     compile: function(options) {
+
+      if (typeof options === 'string') {
+        options = {
+          source: options
+        };
+      }
+
       return React.renderToStaticMarkup(React.createElement(Compiler, options));
     }
   },
@@ -57,13 +64,13 @@ var Compiler = React.createClass({
 
     var header = lines.shift();
 
-    if (header.match(tokens.VERSE_CHORDS_HEADER)) {
+    if (util.regexMatches(header, tokens.VERSE_CHORDS_HEADER)) {
       chords = true;
       lyrics = false;
-    } else if (header.match(tokens.VERSE_LYRICS_HEADER)) {
+    } else if (util.regexMatches(header, tokens.VERSE_LYRICS_HEADER)) {
       chords = false;
       lyrics = true;
-    } else if (header.match(tokens.VERSE_TAB_HEADER)) {
+    } else if (util.regexMatches(header, tokens.VERSE_TAB_HEADER)) {
       chords = false;
       lyrics = false;
     }
@@ -94,15 +101,10 @@ var Compiler = React.createClass({
   parseSection: function(lines) {
     var nodes = [];
 
-    while (!this.isHeader(lines[0])) {
+    while (lines[0] && !this.isHeader(lines[0])) {
       var line = lines.shift();
 
-      if (!line) {
-        // We've run out of lines.
-        return nodes;
-      }
-
-      if (line.match(tokens.GOTO)) {
+      if (util.regexMatches(line, tokens.GOTO)) {
         if (this.props.showGOTOs) {
           nodes.push(
             <Goto line={line} theme={this.props.theme} />
@@ -117,7 +119,11 @@ var Compiler = React.createClass({
       }
     }
 
-    return util.joinToArray(nodes, this.parseVerse(lines));
+    if (lines.length > 0) {
+      return nodes.concat(this.parseVerse(lines));
+    } else {
+      return nodes;
+    }
   },
 
   // Split by newline and remove all empty lines.
@@ -132,8 +138,7 @@ var Compiler = React.createClass({
     source = normalizeNewline(source);
 
     _.each(source.split(tokens.VERSE_END), function(section) {
-      var parsedSection = this.parseSection(this.splitSection(section));
-      nodes = util.joinToArray(nodes, parsedSection);
+      nodes = nodes.concat(this.parseSection(this.splitSection(section)));
     }, this);
 
     return nodes;
