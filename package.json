@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "babel": "6.1.18",
-    "babel-jest": "^6.0.1",
+    "babel-jest": "^9.0.2",
     "html": "0.0.10",
     "jest-cli": "0.8.0",
     "lodash": "3.10.1",
